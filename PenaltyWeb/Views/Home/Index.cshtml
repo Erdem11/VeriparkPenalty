@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    @model BookingModel
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<div>Country: TR - US</div>
+@using (Html.BeginForm("Calculate", "Home", FormMethod.Post))
+{
+    <div class="form-group">
+        <input type="date" name="bookingModel.CheckoutDate" />
+        <input type="date" name="bookingModel.ReturnDate" />
+        <input type="text" name="bookingModel.CountryName" />
+
+        <button type="submit">Calculate</button>
+    </div>
+}
+
+@if (ViewBag.Penalty >= 0)
+{
+    <div>penalty: @ViewBag.Penalty</div>
+}
